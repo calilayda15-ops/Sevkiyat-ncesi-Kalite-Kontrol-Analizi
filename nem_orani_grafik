@@ -1,0 +1,29 @@
+Nem_oranlari = [12.1, 11.1, 14.7, 12.0]
+kritik_hata = list(filter(lambda n: n > 12.9, Nem_oranlari))
+print(kritik_hata)
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# 1. Veriyi hazırlayalım
+data = {
+    'Koli_ID': ['K-001', 'K-002', 'K-003', 'K-004'],
+    'Nem_Orani': [12.1, 11.1, 14.7, 12.0]
+}
+df = pd.DataFrame(data)
+
+# 2. Grafik oluşturma
+plt.figure(figsize=(8, 5))
+plt.bar(df['Koli_ID'], df['Nem_Orani'], color='skyblue', label='Nem Oranı')
+
+# 3. Kritik eşik çizgisini ekleme (Senin belirlediğin 12.9 sınırı)
+plt.axhline(y=12.9, color='red', linestyle='--', label='Kritik Eşik (12.9)')
+
+# 4. Grafik detayları
+plt.title('Koli Bazlı Nem Oranı Analizi', fontsize=14)
+plt.xlabel('Koli Kimliği (ID)')
+plt.ylabel('Nem Oranı (%)')
+plt.legend()
+
+# Grafiği kaydet (GitHub'a yüklemek için)
+plt.savefig('nem_analizi_grafigi.png')
+plt.show()
