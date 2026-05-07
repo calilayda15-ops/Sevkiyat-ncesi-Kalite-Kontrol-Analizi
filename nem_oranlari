@@ -1,0 +1,5 @@
+nem_oranlari = [12.1, 11.1, 14.7, 12.0]
+kritik_hata = list(filter(lambda n: n > 12.9, nem_oranlari))
+print(kritik_hata)
+
+[14.7]
